@@ -59,7 +59,7 @@
   	$uc="";
   	if($url_class!="") $uc=" $WIKI_TAG_EXTERNAL_LINK_STYLE_PREFIX-$url_class";
  	
-	  $s="<A HREF='$url_prefix$url_target' class='wise-wiki-external-link$uc'>$url_label_prefix$title</A>";
+	  $s="<A HREF='$url_prefix$url_target' class='wise-wiki-external-link$uc' title='$url_label_prefix$title'>$url_label_prefix$title</A>";
 	  return $s;
   }
 ?>

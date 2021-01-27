@@ -29,26 +29,6 @@
 		//remove \r if any. use \n for newline only
     $wiki_text=preg_replace('/\\r/', '', $wiki_text);
 
-    //field set
-    $wiki_text=preg_replace_callback('/^\\[([^\\~\\n]+)\\~\\~$(.*)?^\\~\\]$/smU', 'wise_tag_fieldset_pre', $wiki_text);
-
-		//{{wiki:}} {{wiki.php:}}
-    $wiki_text=preg_replace_callback('/\\{\\{wiki\\:(.*?)\\}\\}/', 'wise_tag_include_wiki', $wiki_text);
-    $wiki_text=preg_replace_callback('/\\{\\{wiki\\.php\\:(.*?)\\}\\}/', 'wise_tag_include_wiki_php', $wiki_text);
-
-		//{{html:}} {{html.php:}}
-    $wiki_text=preg_replace_callback('/\\{\\{html\\:(.*?)\\}\\}/', 'wise_tag_include_html', $wiki_text);
-    $wiki_text=preg_replace_callback('/\\{\\{html\\.php\\:(.*?)\\}\\}/', 'wise_tag_include_html_php', $wiki_text);
-
-    $wiki_text=preg_replace_callback('/^\\<\\?htm$(.*)?^\\?\\>$/smU', 'wise_tag_inline_htm', $wiki_text);
-    $wiki_text=preg_replace_callback('/^\\<\\?pre$(.*)?^\\?\\>$/smU', 'wise_tag_inline_pre', $wiki_text);
-    $wiki_text=preg_replace_callback('/^\\<\\?php$(.*)?^\\?\\>$/smU', 'wise_tag_inline_html_php', $wiki_text);
-    $wiki_text=preg_replace_callback('/^\\<\\?wiki\\.php$(.*)?^\\?\\>$/smU', 'wise_tag_inline_wiki_php', $wiki_text);
-
-    //set
-    $wiki_text=preg_replace_callback('/^\\[([^\\~\\n]+)\\~\\~$(.*)?^\\~\\]$/smU', 'wise_tag_fieldset_pre', $wiki_text);
-    $wiki_text=preg_replace_callback('/^\\[([^\\~\\n]+)\\~$(.*)?^\\~\\]$/smU', 'wise_tag_fieldset_wiki', $wiki_text);
-
 		//header level:
     $wiki_text=preg_replace_callback('/^conf:hidetitle$/mU', 'wise_tag_title_hide', $wiki_text);
     $wiki_text=preg_replace_callback('/^title\\:(.*)$/mU', 'wise_tag_title_find', $wiki_text);
@@ -57,7 +37,29 @@
     $wiki_text=preg_replace_callback('/^metadesc\\:(.*)$/mU', 'wise_tag_metadesc', $wiki_text);
     $wiki_text=preg_replace_callback('/^metakey\\:(.*)$/mU', 'wise_tag_metakey', $wiki_text);
 
-     $wiki_text=preg_replace_callback("/%%(.*?)%%/", 'wise_tag_alias', $wiki_text);
+    //field set
+    $wiki_text=preg_replace_callback('/^\\[([^\\~\\n]+)\\~\\~$(.*)?^\\~\\]$/smU', 'wise_tag_fieldset_pre', $wiki_text);
+
+
+		//inline
+    $wiki_text=preg_replace_callback('/^\\<\\?htm$(.*)?^\\?\\>$/smU', 'wise_tag_inline_htm', $wiki_text);
+    $wiki_text=preg_replace_callback('/^\\<\\?pre$(.*)?^\\?\\>$/smU', 'wise_tag_inline_pre', $wiki_text);
+    $wiki_text=preg_replace_callback('/^\\<\\?php$(.*)?^\\?\\>$/smU', 'wise_tag_inline_html_php', $wiki_text);
+    $wiki_text=preg_replace_callback('/^\\<\\?wiki\\.php$(.*)?^\\?\\>$/smU', 'wise_tag_inline_wiki_php', $wiki_text);
+    
+    $wiki_text=preg_replace_callback('/^\\[([^\\~\\n]+)\\~\\~$(.*)?^\\~\\]$/smU', 'wise_tag_fieldset_pre', $wiki_text);
+    
+    $wiki_text=preg_replace_callback("/%%(.*?)%%/", 'wise_tag_alias', $wiki_text);
+    
+		//external file
+    $wiki_text=preg_replace_callback('/\\{\\{html\\:(.*?)\\}\\}/', 'wise_tag_include_html', $wiki_text);
+    $wiki_text=preg_replace_callback('/\\{\\{html\\.php\\:(.*?)\\}\\}/', 'wise_tag_include_html_php', $wiki_text);
+    $wiki_text=preg_replace_callback('/\\{\\{wiki\\.php\\:(.*?)\\}\\}/', 'wise_tag_include_wiki_php', $wiki_text);
+    $wiki_text=preg_replace_callback('/\\{\\{wiki\\:(.*?)\\}\\}/', 'wise_tag_include_wiki', $wiki_text);
+
+    //set
+    $wiki_text=preg_replace_callback('/^\\[([^\\~\\n]+)\\~$(.*)?^\\~\\]$/smU', 'wise_tag_fieldset_wiki', $wiki_text);
+
     //inline text
 //     $wiki_text=preg_replace_callback('/\\[\\^(.*?)\\^\\]/', 'wise_tag_inline_text_superscript', $wiki_text);
 //     $wiki_text=preg_replace_callback('/\\[_(.*?)_\\]/', 'wise_tag_inline_text_subscript', $wiki_text);
@@ -72,12 +74,12 @@
      $wiki_text=preg_replace_callback("/''(.*?)''/", 'wise_tag_inline_text_em', $wiki_text);
 //     $wiki_text=preg_replace_callback("", 'wise_tag_inline_text_code', $wiki_text);
 
-    $wiki_text=preg_replace_callback('/\\[([^:\\!]+):(.*?):\\]/', 'wise_tag_inline_text_span', $wiki_text);
-
     $wiki_text=preg_replace_callback('/\\[\\!(.*?)\\!\\]/', 'wise_tag_external_link', $wiki_text);
 
     $wiki_text=preg_replace_callback('/\\[\\[([^\\]]*?\\])\\]\\]/', 'wise_tag_link', $wiki_text);
     $wiki_text=preg_replace_callback('/\\[\\[(.*?)\\]\\]/', 'wise_tag_link', $wiki_text);
+
+    $wiki_text=preg_replace_callback('/\\[([^%\\[]+)%(.*?)%\\]/', 'wise_tag_inline_text_span', $wiki_text);
 
 	  //comments:
     $wiki_text=preg_replace_callback('/^;(.*)$/mU', 'wise_tag_comment', $wiki_text);
@@ -103,7 +105,7 @@
     $wiki_text=preg_replace_callback('/\\{\\{sitemap\:(.*)\\}\\}/', 'wise_tag_sitemap', $wiki_text);
 
     //need to be after {{ tags.
-    $wiki_text=preg_replace_callback('/^p:([^\\{\\n]*)\\{(.*)\\}/smU', 'wise_tag_p2', $wiki_text);
+    $wiki_text=preg_replace_callback('/^p:([^\\{\\n]*)\\{\\n(.*)\\n\\}/smU', 'wise_tag_p2', $wiki_text);
     $wiki_text=preg_replace_callback('/^p:(.*)$/mU', 'wise_tag_p', $wiki_text);
 	  //list
     $wiki_text=preg_replace_callback('/^([#|\\*]+ .*\n)+/m', 'wise_tag_list', $wiki_text);

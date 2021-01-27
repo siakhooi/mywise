@@ -19,14 +19,11 @@
 //
 // *****************************************************************************
 
-  global $WISE_URL_STYLE;
-  
-  //Original Ugly style of md=xx&gr=yy&ty=zz&pg=oo
-  //$WISE_URL_STYLE="wise-original";
-  
-  //You need .htaccess to turn on this
-  $WISE_URL_STYLE="wise-default";
-  
-  global $WISE_URL_DO_ENCODE;
-  $WISE_URL_DO_ENCODE="Y";
+  function wise_getPageTitle($gr, $ty, $pg){
+	  global $WISE_SITE_DIRECTORY_WIKI;
+	  $wiki_path="site/$WISE_SITE_DIRECTORY_WIKI/".$gr.'/'.$ty.'/'.$pg;
+    $s=wise_get_file_content($wiki_path);
+    preg_match('/^title\\:(.*)$/mU', $s, $matches);
+    return $matches[1];
+  }
 ?>

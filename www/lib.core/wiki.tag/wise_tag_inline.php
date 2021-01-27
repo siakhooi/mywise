@@ -35,6 +35,7 @@
   function wise_tag_inline_wiki_php($matches){
     $n1=$matches[1];
     $s=wise_get_evaluated_content_from_code($n1);
+	    $s=preg_replace('/\\r/', '', $s);
     return $s;
   }
 ?>

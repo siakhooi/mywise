@@ -28,12 +28,16 @@
 	  
 	  $s=$matches[1];
 	  $p=$matches[2];
+	  
 	  $uc="";
 	  if($s!="") {
 		  $s=wise_get_style_p_mapping($s);
 		  $uc=" ".$WIKI_TAG_P_STYLE_PREFIX."-".$s;
 	  }
-	  return "<P class='wise-wiki".$uc."'>".$p."</P>";
+	  
+    $p=preg_replace('/^/m', "<P class='wise-wiki".$uc."'>", $p);
+    $p=preg_replace('/$/m', '</P>', $p);
+	  return "<DIV class='wise-wiki-p".$uc."'>".$p."</DIV>";
   }
   function wise_get_style_p_mapping($s){
 	  global $WIKI_TAG_P_STYLES;

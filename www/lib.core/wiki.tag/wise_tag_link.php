@@ -61,8 +61,6 @@
 	            if($v[3]!='') $pg=$v[3];
 	            break;
     }
-  	
-  	if($title=="") $title=$pg;
 	  foreach($WIKI_TAG_INTERNAL_LINK_TYPES as $st){
 		  $t=$st['tag'];
 		  if($url_style==$t) {
@@ -73,10 +71,14 @@
 		  break;
 		  }
 	  }
+	  $link_title=wise_getPageTitle($gr, $ty, $pg);
+  	if($title=="#") $title=$link_title;
+  	if($title=="") $title=$pg;
+	  if($link_title=="") $link_title=$pg;
   	$uc="";
   	if($url_class!="") $uc=" $WIKI_TAG_INTERNAL_LINK_STYLE_PREFIX-$url_class";
   	$u=wise_getURL($md, $gr, $ty, $pg);
-	  $s="<A HREF='$u' class='wise-wiki-link$uc'>$title</A>";
+	  $s="<A HREF='$u' class='wise-wiki-link$uc' title='$link_title'>$title</A>";
 	  return $s;
   }
 ?>

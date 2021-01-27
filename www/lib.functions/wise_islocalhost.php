@@ -19,14 +19,8 @@
 //
 // *****************************************************************************
 
-  global $WISE_URL_STYLE;
-  
-  //Original Ugly style of md=xx&gr=yy&ty=zz&pg=oo
-  //$WISE_URL_STYLE="wise-original";
-  
-  //You need .htaccess to turn on this
-  $WISE_URL_STYLE="wise-default";
-  
-  global $WISE_URL_DO_ENCODE;
-  $WISE_URL_DO_ENCODE="Y";
+  function wise_islocalhost(){
+	  $host=$_SERVER["HTTP_HOST"];
+	  return ($host=="localhost");
+  }
 ?>

@@ -31,7 +31,10 @@
 		
 		$f=$_SERVER['SCRIPT_FILENAME'];
 		$d1=dirname(realpath($f));
-		$d2=realpath($path);
+//** issue: change realpath to here to solve dirname not able to handle \ issue. **
+		$d2=$path;
+//		$d2=realpath($path);
+// ** end **
 
 		if(!file_exists ( $d2 )){
 		  $title="File Not Exist!";
@@ -59,6 +62,10 @@
 			  case $WISE_MODE_MENU:
 			  //nothing to check.
 			}
+//** issue: change realpath to here to solve dirname not able to handle \ issue. **
+			$d2=realpath($d2);
+// ** end **
+
 			if($d1!=$d2){
 				wise_error("Illegal Access", $mode.":".$path);
 				return FALSE;

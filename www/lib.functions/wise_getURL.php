@@ -29,19 +29,30 @@
   	global $WISE_MODE_CSS;
   	global $WISE_MODE_IMG;
 		
+  	$m=$mode;
+  	$g=$group;
+  	$t=$type;
+  	$p=$page;
+  	global $WISE_URL_DO_ENCODE;
+  	if($WISE_URL_DO_ENCODE=="Y"){
+	  	$g=urlencode($group);
+	  	$t=urlencode($type);
+	  	$p=urlencode($page);
+  	}
+  	
 		if($WISE_URL_STYLE=="wise-original"){
-			return "?".$WISE_URL_NAME_MODE."=".$mode.
-			       "&".$WISE_URL_NAME_GROUP."=".$group.
-			       "&".$WISE_URL_NAME_TYPE."=".$type.
-			       "&".$WISE_URL_NAME_PAGE."=".$page;
+			return "?".$WISE_URL_NAME_MODE."=".$m.
+			       "&".$WISE_URL_NAME_GROUP."=".$g.
+			       "&".$WISE_URL_NAME_TYPE."=".$t.
+			       "&".$WISE_URL_NAME_PAGE."=".$p;
 		}else if($WISE_URL_STYLE=="wise-default"){
 			switch($mode){
 			  case $WISE_MODE_WIKI:
-				  return $group."-".$type."-".$page;
+				  return $g."-".$t."-".$p;
 			  case $WISE_MODE_CSS:
-				  return $page.".css";
+				  return $p.".css";
 			  case $WISE_MODE_IMG:
-				  return "img-".$group."-".$type."-".$page;
+				  return "img-".$g."-".$t."-".$p;
 			}
 		}
 	}

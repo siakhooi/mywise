@@ -28,7 +28,7 @@
   $t=array(
 		array("menutype"=>$WISE_MENU_TYPE_LINK, "label"=>"Welcome", "group"=>"Website", "type"=>"Page", "page"=>"Welcome"),
 		array("menutype"=>$WISE_MENU_TYPE_CAT,	"label"=>"Website", "value"=>array(
-			array("menutype"=>$WISE_MENU_TYPE_LINK, "label"=>"Welcome", "group"=>"Website", "type"=>"Page", "page"=>"Welcome"),
+			array("menutype"=>$WISE_MENU_TYPE_LINK, "label"=>"Introduction", "group"=>"Website", "type"=>"Page", "page"=>"Introduction"),
 		)),
   );
   

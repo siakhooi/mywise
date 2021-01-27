@@ -86,7 +86,7 @@
 	}
 	function wise_logout(){
     global $WISE_LOGIN_COMMAND;
-    $cmd=$_GET[$WISE_LOGIN_COMMAND];
+    $cmd=$_GET[$WISE_LOGIN_COMMAND]??"";
     global $WISE_LOGIN_CMD_LOGOUT;
     
    if($cmd==$WISE_LOGIN_CMD_LOGOUT){

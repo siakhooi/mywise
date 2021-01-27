@@ -41,18 +41,13 @@
 		$w=0;
 		foreach($parent as $i){
 			$menutype=$i['menutype'];
-			$label=$i['label'];
-			$group=$i['group'];
-			$type=$i['type'];
-			$page=$i['page'];
-			$mode=$i['mode'];
-			$url=$i['url'];
-			$value=$i['value'];
-			if($mode=="") $mode=$WISE_MODE_WIKI;
-			if($group=="") $group=$WISE_DEFAULT_GROUP;
-			if($type=="") $type=$WISE_DEFAULT_TYPE;
-			if($page=="") $page=$WISE_DEFAULT_PAGE;
-			if($label=="") $label=wise_getPageTitle($group, $type, $page);
+			$label=$i['label']??wise_getPageTitle($group, $type, $page);
+			$group=$i['group']??$WISE_DEFAULT_GROUP;
+			$type=$i['type']??$WISE_DEFAULT_TYPE;
+			$page=$i['page']??$WISE_DEFAULT_PAGE;
+			$mode=$i['mode']??$WISE_MODE_WIKI;
+			$url=$i['url']??"";
+			$value=$i['value']??"";
 			if($label=="") $label=$page;
 			
 			

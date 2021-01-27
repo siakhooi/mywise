@@ -1,4 +1,5 @@
 <?PHP
+
 // *****************************************************************************
 // MyWISE - My Wiki Inside Site Engine
 // Copyright (C) 2008 - 2010 GQR Solutions. All rights reserved.
@@ -9,8 +10,8 @@
 //
 // This program is part of MyWISE.
 //
-// MyWISE is released under the terms of the GNU Lesser General Public License 
-// as published by the Free Software Foundation, either version 3 of the 
+// MyWISE is released under the terms of the GNU Lesser General Public License
+// as published by the Free Software Foundation, either version 3 of the
 // License, or any later version.
 //
 // You should have received a copy of the GNU Lesser General Public License
@@ -18,18 +19,21 @@
 // If not, see http://www.gnu.org/licenses/.
 //
 // *****************************************************************************
-
-  function wise_getBaseURL() {
-     $pageURL = 'http';
-     $pagePort='';
-     if ($_SERVER["HTTPS"] == "on") {
-	     $pageURL .= "s";
-	     if ($_SERVER["SERVER_PORT"] != "443") $pagePort=":".$_SERVER["SERVER_PORT"];
-     }else{
-	     if ($_SERVER["SERVER_PORT"] != "80") $pagePort=":".$_SERVER["SERVER_PORT"];
-     }
-     $pageURL .= "://";
-     $pageURL .= $_SERVER["SERVER_NAME"].$pagePort.$_SERVER["PHP_SELF"]; 
-     return dirname($pageURL)."/";
-  }
+function wise_getBaseURL()
+{
+    $pageURL = 'http';
+    $pagePort = '';
+    $https = $_SERVER["HTTPS"] ?? "";
+    if ($https == "on") {
+        $pageURL .= "s";
+        if ($_SERVER["SERVER_PORT"] != "443")
+            $pagePort = ":" . $_SERVER["SERVER_PORT"];
+    } else {
+        if ($_SERVER["SERVER_PORT"] != "80")
+            $pagePort = ":" . $_SERVER["SERVER_PORT"];
+    }
+    $pageURL .= "://";
+    $pageURL .= $_SERVER["SERVER_NAME"] . $pagePort . $_SERVER["PHP_SELF"];
+    return dirname($pageURL) . "/";
+}
 ?>

@@ -32,14 +32,13 @@
 		//header level:
     $wiki_text=preg_replace_callback('/^conf:hidetitle$/mU', 'wise_tag_title_hide', $wiki_text);
     $wiki_text=preg_replace_callback('/^title\\:(.*)$/mU', 'wise_tag_title_find', $wiki_text);
-    $wiki_text=wise_tag_title($wiki_text);
+    wise_tag_title_add_alias();
 
     $wiki_text=preg_replace_callback('/^metadesc\\:(.*)$/mU', 'wise_tag_metadesc', $wiki_text);
     $wiki_text=preg_replace_callback('/^metakey\\:(.*)$/mU', 'wise_tag_metakey', $wiki_text);
 
     //field set
     $wiki_text=preg_replace_callback('/^\\[([^\\~\\n]+)\\~\\~$(.*)?^\\~\\]$/smU', 'wise_tag_fieldset_pre', $wiki_text);
-
 
 		//inline
     $wiki_text=preg_replace_callback('/^\\<\\?htm$(.*)?^\\?\\>$/smU', 'wise_tag_inline_htm', $wiki_text);
@@ -100,6 +99,8 @@
 
     $wiki_text=preg_replace_callback('/\\{\\{back\\}\\}/', 'wise_tag_back', $wiki_text);
 
+    $wiki_text=preg_replace_callback('/\\{\\{logout\\}\\}/', 'wise_tag_logout', $wiki_text);
+
     $wiki_text=preg_replace_callback('/\\{\\{menu\:(.*)\\}\\}/', 'wise_tag_menu', $wiki_text);
 
     $wiki_text=preg_replace_callback('/\\{\\{sitemap\:(.*)\\}\\}/', 'wise_tag_sitemap', $wiki_text);
@@ -131,6 +132,8 @@
 
 //  $s=preg_replace('/^field\\:text\\:(.*?)\\/(.*?)\\/(.*?)$/m','<TR><TD style="text-align: right">$1: <TD><INPUT TYPE=text name=$2 size=$3><NBR>', $s);
 //  $s=preg_replace('/^field\\:submit\\:(.*?)\\/(.*?)$/m','<TR><TD><TD><INPUT TYPE=submit name=$1 value=$2><NBR>', $s);
+
+    $wiki_text=wise_tag_title($wiki_text);
 
 		foreach($WISE_WIKLET as $n => $d){
     	$wiki_text=preg_replace('/'.$n.'/', $d, $wiki_text);

@@ -20,13 +20,15 @@
 // *****************************************************************************
 
   function wise_tag_field($matches){
-    global $$WISE_WIKI_FORM_DATA;
+    //global $WISE_WIKI_FORM_DATA;
+    global $_WIKIFORM;
     $fieldtype=$matches[1];
     if($fieldtype=='text'){
 	    $lbl=$matches[2];
 	    $nme=$matches[3];
 	    $v1=$_POST[$nme];
-	    $v2=$$WISE_WIKI_FORM_DATA[$nme];
+	    //$v2=$WISE_WIKI_FORM_DATA[$nme];
+	    $v2=$_WIKIFORM[$nme];
 	    $v=($v1!='')?$v1:$v2;
 	    $size=$matches[4];
 	    

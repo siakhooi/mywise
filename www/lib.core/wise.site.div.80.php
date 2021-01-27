@@ -21,6 +21,6 @@
 
 	global $WISE_MENU_SHOW;
 	if($WISE_MENU_SHOW=="Y"){
-    ?><script language='javascript' src='com.mysoftwarehouse.web.Menu/com.mysoftwarehouse.web.Menu.nocache.js'></script><?PHP 
+    ?><script language='javascript' src='com.menu.web.Menu/com.menu.web.Menu.nocache.js'></script><?PHP 
   }
 ?>

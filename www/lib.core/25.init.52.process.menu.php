@@ -24,8 +24,12 @@
 	  if($HOME_URL=="/") $HOME_URL=".";
 	  return "\"".$HOME_URL."/".wise_getURL($mode, $group, $type, $page)."\"";
   }
+  function addUrl1($url){
+	  return "\"".$url."\"";
+  }
   
 	function generate($parent){
+		global $WISE_MENU_TYPE_LINK_DIRECT;
 		global $WISE_MENU_TYPE_LINK;
 		global $WISE_MENU_TYPE_CAT;
 	  global $WISE_MODE_WIKI;
@@ -42,11 +46,14 @@
 			$type=$i['type'];
 			$page=$i['page'];
 			$mode=$i['mode'];
+			$url=$i['url'];
 			$value=$i['value'];
 			if($mode=="") $mode=$WISE_MODE_WIKI;
-			if($group=="") $mode=$WISE_DEFAULT_GROUP;
-			if($type=="") $mode=$WISE_DEFAULT_TYPE;
-			if($page=="") $mode=$WISE_DEFAULT_PAGE;
+			if($group=="") $group=$WISE_DEFAULT_GROUP;
+			if($type=="") $type=$WISE_DEFAULT_TYPE;
+			if($page=="") $page=$WISE_DEFAULT_PAGE;
+			if($label=="") $label=wise_getPageTitle($group, $type, $page);
+			if($label=="") $label=$page;
 			
 			
 			if($w!=0) wise_pr("},{");
@@ -54,6 +61,10 @@
       	echo "\"label\": \"$label\", ";
       	echo "\"type\": \"a\", ";
       	echo "\"value\": ".addUrl($mode, $group, $type, $page); 
+		  }else if($menutype==$WISE_MENU_TYPE_LINK_DIRECT){
+      	echo "\"label\": \"$label\", ";
+      	echo "\"type\": \"a\", ";
+      	echo "\"value\": ".addUrl1($url);
 			}else if($menutype==$WISE_MENU_TYPE_CAT){
       	echo "\"label\": \"$label\", ";
       	echo "\"type\": \"c\", ";

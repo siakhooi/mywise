@@ -1,4 +1,4 @@
-/*//
+<?PHP
 // *****************************************************************************
 // MyWISE - My Wiki Inside Site Engine
 // Copyright (C) 2008 - 2010 GQR Solutions. All rights reserved.
@@ -18,17 +18,18 @@
 // If not, see http://www.gnu.org/licenses/.
 //
 // *****************************************************************************
-//*/
 
-UL.wise-wiki-sitemap{}
-LI.wise-wiki-sitemap{}
-A.wise-wiki-sitemap{}
-H1.wise-wiki-sitemap{}
-H2.wise-wiki-sitemap{}
-H3.wise-wiki-sitemap{}
-H4.wise-wiki-sitemap{}
-H5.wise-wiki-sitemap{}
-H6.wise-wiki-sitemap{}
-.wise-wiki-sitemap{font-size: 12px; font-weight: normal; margin-bottom: 0px; margin-top: 0px; padding-top: 0px; padding-bottom: 0px; }
-DIV.wise-wiki-sitemap{margin-top: 10px; margin-bottom: 10px;}
-
+  function wise_getBaseURL() {
+     $pageURL = 'http';
+     $pagePort='';
+     if ($_SERVER["HTTPS"] == "on") {
+	     $pageURL .= "s";
+	     if ($_SERVER["SERVER_PORT"] != "443") $pagePort=":".$_SERVER["SERVER_PORT"];
+     }else{
+	     if ($_SERVER["SERVER_PORT"] != "80") $pagePort=":".$_SERVER["SERVER_PORT"];
+     }
+     $pageURL .= "://";
+     $pageURL .= $_SERVER["SERVER_NAME"].$pagePort.$_SERVER["PHP_SELF"]; 
+     return dirname($pageURL)."/";
+  }
+?>

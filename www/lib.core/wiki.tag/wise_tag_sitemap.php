@@ -55,9 +55,11 @@
 		  foreach($WISE_SITEMAP as $a){
 			  if($a['id']==$id){
 				  if(is_array($a['menutrees'])){
+					  wise_sitemap_add("<DIV class='wise-wiki-sitemap'>");
 					  foreach($a['menutrees'] as $mt){
 						  wise_generate_sitemap($mt);
 					  }
+					  wise_sitemap_add("</DIV>");
 				  }
 				  break;
 			  }
@@ -68,6 +70,7 @@
   }
 	function wise_generate_sitemap($parent){
 		global $WISE_MENU_TYPE_LINK;
+		global $WISE_MENU_TYPE_LINK_DIRECT;
 		global $WISE_MENU_TYPE_CAT;
 	  global $WISE_MODE_WIKI;
 		global $WISE_DEFAULT_GROUP;
@@ -84,14 +87,19 @@
 			$type=$i['type'];
 			$page=$i['page'];
 			$mode=$i['mode'];
+			$url=$i['url'];
 			if($mode=="") $mode=$WISE_MODE_WIKI;
 			if($group=="") $mode=$WISE_DEFAULT_GROUP;
 			if($type=="") $mode=$WISE_DEFAULT_TYPE;
 			if($page=="") $mode=$WISE_DEFAULT_PAGE;
+			if($label=="") $label=wise_getPageTitle($group, $type, $page);
+			if($label=="") $label=$page;
 
 			$h=wise_sitemap_get_heading();
 			if($menutype==$WISE_MENU_TYPE_LINK){
 				wise_sitemap_add("<LI $c><H$h $c><A $c HREF=\"".wise_getURL($mode, $group, $type, $page)."\">".$label."</A></H$h></LI>");
+		  }else if($menutype==$WISE_MENU_TYPE_LINK_DIRECT){
+				wise_sitemap_add("<LI $c><H$h $c><A $c HREF=\"".$url."\">".$label."</A></H$h></LI>");
  			}else if($menutype==$WISE_MENU_TYPE_CAT){
  				wise_sitemap_add("<LI $c><H$h $c>".$label."</H$h></LI>");
  				wise_sitemap_add_heading();

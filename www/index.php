@@ -29,7 +29,9 @@
   require_once('lib.core/00.includeAllInPath.php');
   includeAllInPath('lib.functions/', '', '.php');
   includeAllInPath('lib.core/', '10.func.', '.php');
+  includeAllInPath('site/conf.site/', 'pre.conf.', '.php');
   includeAllInPath('site/conf/', 'conf.', '.php');
+  includeAllInPath('site/conf.site/', 'conf.', '.php');
   includeAllInPath('lib.core/', '20.init.', '.php');
   includeAllInPath('site/lib/', 'init.', '.php');
   includeAllInPath('lib.core/', '25.init.', '.php');

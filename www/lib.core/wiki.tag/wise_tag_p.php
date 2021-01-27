@@ -1,0 +1,46 @@
+<?PHP
+// *****************************************************************************
+// MyWISE - My Wiki Inside Site Engine
+// Copyright (C) 2008 - 2010 GQR Solutions. All rights reserved.
+// http://www.mywise.org
+//
+// Unless you have purchased a commercial license agreement from GQR Solutions,
+// the following license terms apply:
+//
+// This program is part of MyWISE.
+//
+// MyWISE is released under the terms of the GNU Lesser General Public License 
+// as published by the Free Software Foundation, either version 3 of the 
+// License, or any later version.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with MyWISE.
+// If not, see http://www.gnu.org/licenses/.
+//
+// *****************************************************************************
+
+  function wise_tag_p($matches){
+	  $p=$matches[1];
+	  return "<P class=wise-wiki>".$p."</P>";
+  }
+  function wise_tag_p2($matches){
+  	global $WIKI_TAG_P_STYLE_PREFIX;
+	  
+	  $s=$matches[1];
+	  $p=$matches[2];
+	  $uc="";
+	  if($s!="") {
+		  $s=wise_get_style_p_mapping($s);
+		  $uc=" ".$WIKI_TAG_P_STYLE_PREFIX."-".$s;
+	  }
+	  return "<P class='wise-wiki".$uc."'>".$p."</P>";
+  }
+  function wise_get_style_p_mapping($s){
+	  global $WIKI_TAG_P_STYLES;
+	  foreach($WIKI_TAG_P_STYLES as $st){
+		  $t=$st['tag'];
+		  if($s==$t) return $st['style'];
+	  }
+	  return $s;
+  }
+?>

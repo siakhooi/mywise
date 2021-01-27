@@ -1,0 +1,92 @@
+<!--
+ * Copyright 2007 GQR Solutions. All rights reserved.
+ * PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ -->
+<html>
+	<head>
+	
+		<!--                                           -->
+		<!-- Any title is fine                         -->
+		<!--                                           -->
+		<title>Wrapper HTML for Menu</title>
+
+		<!--                                           -->
+		<!-- Use normal html, such as style            -->
+		<!--                                           -->
+		<style>
+			body,td,a,div,.p{font-family:arial,sans-serif}
+                         body{background: blue;}
+			div,td{color:#000000}
+			a:link,.w,.w a:link{color:#0000cc}
+			a:visited{color:#551a8b}
+			a:active{color:#ff0000}
+                         
+.gwt-MenuBar{
+  padding: 0 10px 0 10px;
+}
+.gwt-MenuBar .gwt-MenuItem{
+  padding: 0 10px 0 10px;
+  color:#fff;
+}
+.gwt-MenuBar .gwt-MenuItem-selected{
+  padding: 0 10px 0 10px;
+  cursor: pointer;
+}
+.gwt-MenuBar-dropdown{
+  position: relative; /* need these 2 lines for gwt to work. */
+  xleft: -100px;
+  padding: 0px 5px 0px 5px;
+  background-color: #437dbd;
+  border: #2c527c solid 1px;
+}
+.gwt-MenuBar-dropdown .gwt-MenuItem{
+  padding: 5px 10px 5px 10px;
+  color: #fff;
+}
+.gwt-MenuBar-dropdown .gwt-MenuItem-selected{
+  padding: 5px 10px 5px 10px;
+  background-color: #92b6da;
+  cursor: pointer;
+}
+                         
+		</style>
+
+		<!--                                           -->
+		<!-- This script loads your compiled module.   -->
+		<!-- If you add any GWT meta tags, they must   -->
+		<!-- be added before this line.                -->
+		<!--                                           -->
+		<script language='javascript' src='com.mysoftwarehouse.web.Menu.nocache.js'></script>
+	</head>
+
+	<!--                                           -->
+	<!-- The body can have arbitrary html, or      -->
+	<!-- you can leave the body empty if you want  -->
+	<!-- to create a completely dynamic ui         -->
+	<!--                                           -->
+	<body>
+
+		<!-- OPTIONAL: include this if you want history support -->
+		<iframe src="javascript:''" id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+
+		<h1>Menu</h1>
+
+		<p>
+			This is an example of a host page for the Menu application. 
+			You can attach a Web Toolkit module to any HTML page you like, 
+			making it easy to add bits of AJAX functionality to existing pages 
+			without starting from scratch.
+		</p>
+
+		<table align=center>
+			<tr>
+				<td id="slot1"></td><td id="slot2"></td>
+			</tr>
+		</table>
+                 <div id="mymenu11"> </div>
+                 asflasjf;asdf;asdfdsafasdf<P>
+                 <div id="mymenu33"> </div>
+                 asflasjf;asdf;asdfdsafasdf<P>
+                 <div id="mymenu22"> </div>
+	</body>
+</html>

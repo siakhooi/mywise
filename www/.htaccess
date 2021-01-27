@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteRule com.mysoftwarehouse.web.Menu/getmenu.php index.php?md=menu
+RewriteRule site.files/(.*)$ site.files/$1 [L]
+RewriteRule ^([^-]*)-([^-]*)-([^-]*)-(.*)$ index.php?md=$1&gr=$2&ty=$3&pg=$4 [L]
+RewriteRule ^([^-]*)-([^-]*)-(.*\.php)$ index.php?md=php&gr=$1&ty=$2&pg=$3 [L]
+RewriteRule ^([^-]*)-([^-]*)-(.*\.[jJ][pP][gG])$ index.php?md=img&gr=$1&ty=$2&pg=$3 [L]
+RewriteRule ^([^-]*)-([^-]*)-(.*\.[jJ][pP][eE][gG])$ index.php?md=img&gr=$1&ty=$2&pg=$3 [L]
+RewriteRule ^([^-]*)-([^-]*)-(.*\.[pP][nN][gG])$ index.php?md=img&gr=$1&ty=$2&pg=$3 [L]
+RewriteRule ^([^-]*)-([^-]*)-(.*\.[gG][iI][fF])$ index.php?md=img&gr=$1&ty=$2&pg=$3 [L]
+RewriteRule ^([^-]*)-([^-]*)-(.*)$ index.php?md=wiki&gr=$1&ty=$2&pg=$3 [L]
+RewriteRule ^(.*)\.css$ index.php?md=css&gr=&ty=&pg=$1 [L]
+RewriteRule ^sitemap\.xml$ index.php?md=sitemap [L]

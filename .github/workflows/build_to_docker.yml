@@ -1,0 +1,35 @@
+name: build_to_docker
+
+env:
+  DOCKERFILE: Dockerfile
+  REGISTRY: registry.hub.docker.com
+  REGISTRY_USER: ${{ secrets.REGISTRY_USER }}
+  REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+  TAG0: registry.hub.docker.com/siakhooi/mywise
+
+on:
+  push:
+    tags:
+    - '*'
+jobs:
+  build_container_and_push_to_registry:
+    name: Build Container and push image to Docker Hub
+    runs-on: ubuntu-latest
+    container: 
+        image: docker:19.03.12-dind
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: set env
+        run: echo "MYTAG=$(echo $GITHUB_REF | cut -d / -f 3)" >> $GITHUB_ENV
+      - name: docker build
+        run: docker build -t $TAG0:latest -t $TAG0:$MYTAG .
+      - name: docker images
+        run: docker images
+      - name: Login
+        run: docker login -u $REGISTRY_USER -p "$REGISTRY_PASSWORD" $REGISTRY
+      - name: Push to latest
+        run: docker push $TAG0:latest
+      - name: Push to tag
+        run: docker push $TAG0:$MYTAG
+

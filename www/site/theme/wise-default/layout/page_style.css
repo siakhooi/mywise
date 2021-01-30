@@ -1,48 +1,39 @@
 /*//
 // *****************************************************************************
-// MyWISE - My Wiki Inside Site Engine
-// Copyright (C) 2008 - 2010 GQR Solutions. All rights reserved.
-// http://www.mywise.org
+// This program is part of MyWISE - My Wiki Inside Site Engine
 //
-// Unless you have purchased a commercial license agreement from GQR Solutions,
-// the following license terms apply:
-//
-// This program is part of MyWISE.
-//
-// MyWISE is released under the terms of the GNU Lesser General Public License 
-// as published by the Free Software Foundation, either version 3 of the 
-// License, or any later version.
-//
-// You should have received a copy of the GNU Lesser General Public License
-// along with MyWISE.
-// If not, see http://www.gnu.org/licenses/.
-//
+// See LICENSE.md in the project root for license information.
 // *****************************************************************************
 // */
 BODY {
 	margin-top: 20px;
 	margin-left: 10px;
 	margin-right: 80px;
-	margin-bottom: 80px;	
+	margin-bottom: 80px;
 	background-color: #ffffff;
 }
 /*//------------------------------*/
 DIV.page-header-title {
-	  color: #111111;
+	color: #111111;
 }
-IMG.page-header-logo { height: 100px; }
+
+IMG.page-header-logo {
+	height: 100px;
+}
+
 DIV.page-header-subtitle {
-	font-style: italic; 
-	margin-bottom: 10px; 
-	font-size: 14px; 
+	font-style: italic;
+	margin-bottom: 10px;
+	font-size: 14px;
 	text-align: center;
 }
 /*//------------------------------*/
 DIV.page-footer {
 	color: white;
 }
-DIV.page-footer-text{
+
+DIV.page-footer-text {
 	color: #111111;
-	text-align:right;
+	text-align: right;
 	padding: 10px 40px 10px 0px;
 }

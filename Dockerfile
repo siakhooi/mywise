@@ -1,6 +1,6 @@
 FROM php:apache
 LABEL maintainer="siakhooi@gmail.com"
-LABEL name="MyWise Framework"
+LABEL name="MyWISE Framework"
 LABEL objective="My Wiki Inside Site Engine, a wiki oriented web framework."
 LABEL version="1.0.4"
 LABEL description="My Wiki Inside Site Engine, a wiki oriented web framework."

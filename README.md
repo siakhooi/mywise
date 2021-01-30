@@ -1,6 +1,9 @@
 # mywise
 * My Wiki Inside Site Engine, a wiki oriented web framework.
 
+## License
+* LGPL-3.0
+
 ## Features
 * Wiki language to design website
 * Small foot print

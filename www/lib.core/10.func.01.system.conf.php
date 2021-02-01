@@ -55,6 +55,6 @@ $WISE_PATH_SEPARATOR = "/";
 
 global $WISE_POWERED_BY_TEXT;
 global $WISE_COPYRIGHT_TEXT;
-$WISE_COPYRIGHT_TEXT = "Copyright 2008-2010 &copy; MyWISE.org. All rights reserved";
-$WISE_POWERED_BY_TEXT = "<HR style='height: 1px; ' /><DIV style='text-align: right; font-size: 10px; font-weight: bold;'>Copyright 2008-2010 &copy; <H1 style='display: inline; font-size: 10px; '><A HREF=http://www.mywise.org>MyWISE.org</A>. All rights reserved</H1>.</DIV>";
+$WISE_COPYRIGHT_TEXT = "Copyright &copy; MyWISE. All rights reserved";
+$WISE_POWERED_BY_TEXT = "<HR style='height: 1px; ' /><DIV style='text-align: right; font-size: 10px; font-weight: bold;'>Copyright &copy; <H1 style='display: inline; font-size: 10px; '><A HREF=https://github.com/siakhooi/mywise/>MyWISE</A>. All rights reserved</H1>.</DIV>";
 ?>

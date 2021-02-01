@@ -19,7 +19,7 @@
 
 ## Current Situation
 * The project was previously hosted in [https://sourceforge.net/projects/mywise/](https://sourceforge.net/projects/mywise/) and was abandoned since 2010.
-* Currently it is revised to enabled some old sites that run on this framework.
+* Currently it is revised to enable some old sites that run on this framework.
 
 ## Reference
 * [PHP at Docker Hub](https://hub.docker.com/_/php)

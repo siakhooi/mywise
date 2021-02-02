@@ -10,3 +10,8 @@ h2:Download Site Files
 docker run -d -p 80:80 --name m2 mywise:latest
 docker cp m2:/site-files .
 ?>
+h2:Run the local Site Files
+<?pre
+# assume local directory has a subdirectory called 'site-files' 
+docker run -p 80:80 -v `pwd`/site-files:/site-files --name m3 mywise:latest
+?>

@@ -30,3 +30,8 @@ docker run siakhooi/mywise:latest
 docker run -d -p 80:80 --name <container_name> mywise:latest
 docker cp <container_name>:/site-files .
 ````
+## Run the local Site Files after Modification
+```
+# assume local directory has a subdirectory called 'site-files' 
+docker run -p 80:80 -v `pwd`/site-files:/site-files --name <container_name> mywise:latest
+```

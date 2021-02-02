@@ -30,6 +30,19 @@ $t = array(
                 "page" => "Introduction"
             )
         )
+    ),
+    array(
+        "menutype" => $WISE_MENU_TYPE_CAT,
+        "label" => "Container",
+        "value" => array(
+            array(
+                "menutype" => $WISE_MENU_TYPE_LINK,
+                "label" => "Usage",
+                "group" => "Website",
+                "type" => "Container",
+                "page" => "Usage"
+            )
+        )
     )
 );
 

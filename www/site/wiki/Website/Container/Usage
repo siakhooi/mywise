@@ -1,0 +1,12 @@
+h1:Usage - Demo
+<?pre 
+docker run -p 80:80 mywise:latest
+#or
+docker run -p 80:80 -name m2 mywise:latest  #name as 'm2'
+?>
+h1:Usage - Download to Local and Run from Local
+h2:Download Site Files
+<?pre
+docker run -d -p 80:80 --name m2 mywise:latest
+docker cp m2:/site-files .
+?>

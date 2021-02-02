@@ -20,7 +20,13 @@
 * Currently it is revised to enable some old sites that run on this framework.
 * Many overhauls in progress.
 
-# Usage
+# Usage - Demo
 ```
 docker run siakhooi/mywise:latest
 ```
+# Usage - Local
+## Download Site Files for Modification
+```
+docker run -d -p 80:80 --name <container_name> mywise:latest
+docker cp <container_name>:/site-files .
+````

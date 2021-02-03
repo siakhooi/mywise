@@ -4,14 +4,30 @@ docker run -p 80:80 mywise:latest
 #or
 docker run -p 80:80 -name m2 mywise:latest  #name as 'm2'
 ?>
-h1:Usage - Download to Local and Run from Local
+h1:Usage - Create new Site with MyWISE
 h2:Download Site Files
 <?pre
 docker run -d -p 80:80 --name m2 mywise:latest
 docker cp m2:/site-files .
+
+# you will have a local directory of ./site-files with the following contents:
+./site-files/site
+./site-files/site.files
+./site-files/Dockerfile
 ?>
-h2:Run the local Site Files
+h2:Modify files
 <?pre
-# assume local directory has a subdirectory called 'site-files' 
-docker run -p 80:80 -v `pwd`/site-files:/site-files --name m3 mywise:latest
+
+cd site-files
+
+# modify files in site and site.files accordingly
+# modify Dockerfile if needed
+?>
+h2:Run the local Site Files (for testing)
+<?pre
+docker run -p 80:80 -v `pwd`:/site-files mywise:latest
+?>
+h2:Create New Container
+<?pre
+docker built -t newimagename:imagetag .
 ?>

@@ -2,7 +2,7 @@ FROM php:apache
 LABEL maintainer="siakhooi@gmail.com"
 LABEL name="MyWISE Framework"
 LABEL objective="My Wiki Inside Site Engine, a wiki oriented web framework."
-LABEL version="1.0.5"
+LABEL version="1.0.6"
 LABEL description="My Wiki Inside Site Engine, a wiki oriented web framework."
 
 COPY www/ /var/www/html/

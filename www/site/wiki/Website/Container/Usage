@@ -1,13 +1,13 @@
 h1:Usage - Demo
 <?pre 
-docker run -p 80:80 mywise:latest
+docker run -p 80:80 siakhooi/mywise:latest
 #or
-docker run -p 80:80 -name m2 mywise:latest  #name as 'm2'
+docker run -p 80:80 -name m2 siakhooi/mywise:latest  #name as 'm2'
 ?>
 h1:Usage - Create new Site with MyWISE
 h2:Download Site Files
 <?pre
-docker run -d -p 80:80 --name m2 mywise:latest
+docker run -d -p 80:80 --name m2 siakhooi/mywise:latest
 docker cp m2:/site-files .
 
 # you will have a local directory of ./site-files with the following contents:
@@ -25,7 +25,7 @@ cd site-files
 ?>
 h2:Run the local Site Files (for testing)
 <?pre
-docker run -p 80:80 -v `pwd`:/site-files mywise:latest
+docker run -p 80:80 -v `pwd`:/site-files siakhooi/mywise:latest
 ?>
 h2:Create New Container
 <?pre

@@ -1,4 +1,4 @@
-FROM mywise:latest
+FROM siakhooi/mywise:latest
 LABEL maintainer="your@email.com"
 LABEL name="Your Container/Website name"
 LABEL version="1.0.0"

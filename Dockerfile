@@ -13,3 +13,4 @@ RUN a2enmod rewrite \
  && mv /var/www/html/site.files /site-files \
  && ln -s /site-files/site /var/www/html/site \
  && ln -s /site-files/site.files /var/www/html/site.files
+COPY templates/Dockerfile /site-files/Dockerfile

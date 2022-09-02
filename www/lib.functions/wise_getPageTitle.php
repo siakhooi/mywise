@@ -10,7 +10,7 @@ function wise_getPageTitle($gr, $ty, $pg)
     global $WISE_SITE_DIRECTORY_WIKI;
     $wiki_path = "site/$WISE_SITE_DIRECTORY_WIKI/" . $gr . '/' . $ty . '/' . $pg;
     $s = wise_get_file_content($wiki_path);
-    preg_match('/^title\\:(.*)$/U', $s, $matches);
-    return $matches[1];
+    preg_match('/title:(.*)/', $s, $matches);
+    return isset($matches[1])?$matches[1]:"";
 }
 ?>

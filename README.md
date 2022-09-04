@@ -15,6 +15,10 @@
 - Extensible
 - Easy to Deploy
 
+## Sample project
+
+- <https://github.com/siakhooi/mywise-tionghua>
+
 ## URL
 
 - MyWISE at Docker Hub [https://hub.docker.com/r/siakhooi/mywise](https://hub.docker.com/r/siakhooi/mywise)

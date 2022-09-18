@@ -16,14 +16,6 @@ function wise_process_wiki($wiki_text)
     // remove \r if any. use \n for newline only
     $wiki_text = preg_replace('/\\r/', '', $wiki_text);
 
-    // header level:
-    $wiki_text = preg_replace_callback('/^conf:hidetitle$/mU', 'wise_tag_title_hide', $wiki_text);
-    $wiki_text = preg_replace_callback('/^title\\:(.*)$/mU', 'wise_tag_title_find', $wiki_text);
-    wise_tag_title_add_alias();
-
-    $wiki_text = preg_replace_callback('/^metadesc\\:(.*)$/mU', 'wise_tag_metadesc', $wiki_text);
-    $wiki_text = preg_replace_callback('/^metakey\\:(.*)$/mU', 'wise_tag_metakey', $wiki_text);
-
     // field set
     $wiki_text = preg_replace_callback('/^\\[([^\\~\\n]+)\\~\\~$(.*)?^\\~\\]$/smU', 'wise_tag_fieldset_pre', $wiki_text);
 
@@ -42,6 +34,15 @@ function wise_process_wiki($wiki_text)
     $wiki_text = preg_replace_callback('/\\{\\{html\\.php\\:(.*?)\\}\\}/', 'wise_tag_include_html_php', $wiki_text);
     $wiki_text = preg_replace_callback('/\\{\\{wiki\\.php\\:(.*?)\\}\\}/', 'wise_tag_include_wiki_php', $wiki_text);
     $wiki_text = preg_replace_callback('/\\{\\{wiki\\:(.*?)\\}\\}/', 'wise_tag_include_wiki', $wiki_text);
+
+    // header level: (after alias, after external file)
+    $wiki_text = preg_replace_callback('/^conf:hidetitle$/mU', 'wise_tag_title_hide', $wiki_text);
+    $wiki_text = preg_replace_callback('/^title\\:(.*)$/mU', 'wise_tag_title_find', $wiki_text);
+    wise_tag_title_add_alias();
+    $wiki_text = preg_replace_callback('/^metadesc\\:(.*)$/mU', 'wise_tag_metadesc', $wiki_text);
+    $wiki_text = preg_replace_callback('/^metakey\\:(.*)$/mU', 'wise_tag_metakey', $wiki_text);
+
+    $wiki_text = preg_replace_callback("/%%(.*?)%%/", 'wise_tag_alias', $wiki_text);
 
     // set
     $wiki_text = preg_replace_callback('/^\\[([^\\~\\n]+)\\~$(.*)?^\\~\\]$/smU', 'wise_tag_fieldset_wiki', $wiki_text);
@@ -64,6 +65,7 @@ function wise_process_wiki($wiki_text)
 
     $wiki_text = preg_replace_callback('/\\[\\[([^\\]]*?\\])\\]\\]/', 'wise_tag_link', $wiki_text);
     $wiki_text = preg_replace_callback('/\\[\\[(.*?)\\]\\]/', 'wise_tag_link', $wiki_text);
+    $wiki_text = preg_replace_callback("/%%(.*?)%%/", 'wise_tag_alias', $wiki_text); //to solve alias in link title.
 
     $wiki_text = preg_replace_callback('/\\[([^%\\[]+)%(.*?)%\\]/', 'wise_tag_inline_text_span', $wiki_text);
 
@@ -105,6 +107,7 @@ function wise_process_wiki($wiki_text)
     $wiki_text = preg_replace_callback('/^([#|\\*]+ .*\n)+/m', 'wise_tag_list', $wiki_text);
     $wiki_text = preg_replace_callback('/^([#|\\*]+ .*\n)+/m', 'wise_tag_list', $wiki_text);
 
+    $wiki_text = preg_replace_callback('/^(\|.*\n)+/m', 'wise_tag_table', $wiki_text);
     // experimental
     # # form
     global $WISE_WIKI_FORM_DATA;

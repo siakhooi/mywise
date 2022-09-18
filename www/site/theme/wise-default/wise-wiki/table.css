@@ -1,0 +1,29 @@
+/*//
+// *****************************************************************************
+// This program is part of MyWISE - My Wiki Inside Site Engine
+//
+// See LICENSE.md in the project root for license information.
+// *****************************************************************************
+//*/
+
+TABLE.wise-wiki{}
+TR.wise-wiki{}
+TH.wise-wiki{}
+TD.wise-wiki{}
+
+//with user defined id
+TABLE.user-table-cheque-helper-example{width: 100%; margin-top: 20px; margin-bottom: 20px; border: 1px dotted black;}
+TR.user-table-cheque-helper-example{}
+TH.user-table-cheque-helper-example{vertical-align: top;}
+TD.user-table-cheque-helper-example{}
+
+TH.user-table-column-t{ text-align: left;}
+TH.user-table-column-n{ text-align: right;}
+
+TD.user-table-column-t{ text-align: left;}
+TD.user-table-column-n{ text-align: right;}
+
+TABLE.user-table-shopping-helper-example{width: 100%; margin-top: 20px; margin-bottom: 20px; border: 1px dotted black;}
+TR.user-table-shopping-helper-example{}
+TH.user-table-shopping-helper-example{vertical-align: top;}
+TD.user-table-shopping-helper-example{}

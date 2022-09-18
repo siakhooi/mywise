@@ -1,16 +1,15 @@
 <?PHP
-
 // *****************************************************************************
 // This program is part of MyWISE - My Wiki Inside Site Engine
 //
 // See LICENSE.md in the project root for license information.
 // *****************************************************************************
-function wise_getPageTitle($gr, $ty, $pg)
-{
-    global $WISE_SITE_DIRECTORY_WIKI;
-    $wiki_path = "site/$WISE_SITE_DIRECTORY_WIKI/" . $gr . '/' . $ty . '/' . $pg;
-    $s = wise_get_file_content($wiki_path);
-    preg_match('/^title\\:(.*)$/mU', $s, $matches);
-    return trim($matches[1]);
-}
+
+  global $WIKI_TAG_TABLE_USER_STYLE_PREFIX;
+  
+  $WIKI_TAG_TABLE_USER_STYLE_PREFIX="user-table";
+  
+  global $WIKI_TAG_TABLE_COLUMN_USER_STYLE_PREFIX;
+  $WIKI_TAG_TABLE_COLUMN_USER_STYLE_PREFIX="user-table-column";
+  
 ?>

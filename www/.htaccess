@@ -1,3 +1,4 @@
+AddType application/x-java-jnlp-file JNLP
 RewriteEngine On
 RewriteRule com.mysoftwarehouse.web.Menu/getmenu.php index.php?md=menu
 RewriteRule com.menu.web.Menu/getmenu.php index.php?md=menu

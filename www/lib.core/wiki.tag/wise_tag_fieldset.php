@@ -40,6 +40,7 @@ function wise_tag_fieldset($tag, $type, $matches)
     if ($style != "")
         $uc = " $WIKI_TAG_FIELDSET_STYLE_PREFIX-$style";
     $s = "";
+    $s .= "<DIV class='wise-wiki$uc'>";
     $s .= "<FIELDSET class='wise-wiki$uc'>";
     $s .= "<LEGEND class='wise-wiki$uc'>";
     $s .= $title;
@@ -48,6 +49,7 @@ function wise_tag_fieldset($tag, $type, $matches)
     $s .= $fc;
     $s .= "</$tag>";
     $s .= "</FIELDSET>";
+    $s .= "</DIV>";
     return $s;
 }
 ?>
